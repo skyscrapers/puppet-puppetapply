@@ -5,7 +5,7 @@ git pull
 git submodule init
 git submodule update
 
-if [[ ! -h \"/tmp/hiera\" ]]; then
+if [[ ! -h "/tmp/hiera" ]]; then
   ln -s /root/puppet/hiera /tmp/hiera;
 fi
 

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cd /root/puppet/
+git pull
+git submodule init
+git submodule update
+
+if [[ ! -h \"/tmp/hiera\" ]]; then
+  ln -s /root/puppet/hiera /tmp/hiera;
+fi
+
+FACTER_ourenvironment=<%= scope['puppetapply::ourenvironment'] -%> FACTER_function=<%= scope['puppetapply::function'] -%> FACTER_project=<%= scope['puppetapply::project'] -%> /usr/bin/puppet apply --verbose --pluginsync --hiera_config /root/puppet/hiera/hiera.yaml --modulepath=/root/puppet/modules/ /root/puppet/manifests/default.pp

@@ -45,7 +45,7 @@ class puppetapply::install {
     file { '/root/.ssh/id_rsa':
       ensure  => file,
       mode    => '0400',
-      content => $puppetapply::ssh_key,
+      content => hiera('sshkey'),
     }
     File['/root/.ssh/id_rsa'] ~> Vcsrepo['/root/puppet']
   }

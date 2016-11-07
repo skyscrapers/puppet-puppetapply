@@ -2,7 +2,6 @@
 #
 class puppetapply(
   $source = undef,
-  $ssh_key = undef,
   $function = undef,
   $ourenvironment = undef,
   $project = undef,

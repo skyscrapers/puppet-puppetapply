@@ -17,7 +17,7 @@ class puppetapply::config {
 
   logrotate::rule { 'puppet':
     path   => '/var/log/puppet/agent.log',
-    rotate => 3,
+    rotate => '3',
     size   => '50M',
   }
 }

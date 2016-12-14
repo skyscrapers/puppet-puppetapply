@@ -11,7 +11,7 @@ class puppetapply::config {
   }
 
   cron { 'puppetapply':
-    command => '/usr/local/sbin/puppet_run.sh >> /var/log/puppet/agent.log 2>&1',
+    command => '/usr/local/sbin/puppet_run.sh >> /var/log/puppetlabs/puppet/agent.log 2>&1',
     minute  => '*/30',
   }
 

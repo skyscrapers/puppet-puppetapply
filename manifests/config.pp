@@ -10,8 +10,14 @@ class puppetapply::config {
     group   => root,
   }
 
+  if versioncmp('4.0.0', $::puppetversion) < 1 {
+      $logdir = '/var/log/puppetlabs/puppet/agent.log'
+  } else {
+      $logdir = '/var/log/puppet/agent.log'
+  }
+
   cron { 'puppetapply':
-    command => '/usr/local/sbin/puppet_run.sh >> /var/log/puppet/agent.log 2>&1',
+    command => "/usr/local/sbin/puppet_run.sh >> $logdir 2>&1",
     minute  => '*/30',
   }
 

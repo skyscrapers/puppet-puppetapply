@@ -10,7 +10,7 @@ class puppetapply::config {
     group   => root,
   }
 
-  if versioncmp('4', $::puppetversion) =< 0 {
+  if versioncmp('4.0.0', $::puppetversion) < 1 {
       $logdir = '/var/log/puppetlabs/puppet/agent.log'
   } else {
       $logdir = '/var/log/puppet/agent.log'
